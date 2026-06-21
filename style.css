@@ -1,0 +1,156 @@
+/* Základní styly */
+:root {
+    --primary-color: #4CAF50; /* Zelená */
+    --secondary-color: #2196F3; /* Modrá */
+    --background-light: #f4f7f6;
+    --background-dark: #e0e4e3;
+    --text-color-dark: #333;
+    --text-color-light: #fff;
+    --border-color: #ccc;
+    --error-color: #f44336; /* Červená */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--background-light), var(--background-dark));
+    color: var(--text-color-dark);
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.calculator-container {
+    background-color: var(--text-color-light);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+/* Sekce výběru typu úměry */
+.proportion-type-selection {
+    margin-bottom: 0px; /* Úplné odstranění mezery */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.proportion-type-selection label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: var(--text-color-dark);
+}
+
+.proportion-type-selection input[type="radio"] {
+    margin-right: 8px;
+    transform: scale(1.2);
+    accent-color: var(--secondary-color); /* Barva pro radio button */
+}
+
+/* Schéma trojčlenky */
+.proportion-scheme {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px 20px; /* Mezera mezi řádky (30px) a sloupci (20px) */
+    margin: 0 auto 30px auto;
+    position: relative;
+    max-width: 300px; /* Omezit šířku schématu */
+}
+
+.cell {
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    min-height: 70px; /* Zajištění konzistentní výšky */
+}
+
+.cell input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+    -moz-appearance: textfield; /* Skryje šipky u input type="number" ve Firefoxu */
+}
+
+/* Skryje šipky u input type="number" v Chrome/Safari */
+.cell input[type="number"]::-webkit-outer-spin-button,
+.cell input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cell input[type="number"]:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2); /* Modrá záře */
+}
+
+.result-cell {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+}
+
+.result-cell #outputX {
+    font-size: 1.8em;
+}
+
+/* Tlačítko */
+#calculateBtn {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    border: none;
+    padding: 15px 30px; /* Větší padding pro větší tlačítko */
+    border-radius: 8px;
+    font-size: 1.3em;  /* Větší font pro větší tlačítko */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#calculateBtn:hover {
+    background-color: #43A047; /* Tmavší zelená */
+    transform: translateY(-2px);
+}
+
+#calculateBtn:active {
+    transform: translateY(0);
+}
+
+/* Výsledek a chyby */
+.result {
+    margin-top: 25px;
+    font-size: 1.6em;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.error {
+    margin-top: 25px;
+    font-size: 1.1em;
